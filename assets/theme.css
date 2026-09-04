@@ -1,12 +1,8 @@
 /* ===== Tokens ===== */
 :root{
-  --ink:#1f1f1f;
   --ink-soft:#5a5a5a;
   --line:#e4e0dc;
-  --paper:#ffffff;
-  --paper-soft:#f7f4f1;
-  --blush:#e8c4c4;
-  --accent:#1f1f1f;
+  --accent-text:#ffffff;
   --sale:#b5443c;
   --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
   --sans:"Jost","Helvetica Neue",Arial,sans-serif;
@@ -111,8 +107,9 @@ select{width:100%;height:48px;padding:0 40px 0 14px;font:inherit;font-size:14px;
 .cta-row{display:flex;gap:10px;margin-bottom:14px}
 .btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 28px;border-radius:var(--radius);font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:400;transition:background .15s,color .15s}
 .btn:hover{text-decoration:none}
-.btn--primary{background:var(--accent);color:#fff;flex:1}
-.btn--primary:hover{background:#3a3a3a}
+.btn--primary{background:var(--accent);color:var(--accent-text);flex:1}
+.btn--primary:disabled{opacity:.45;cursor:not-allowed}
+.btn--primary:hover{filter:brightness(1.25)}
 .btn--icon{width:50px;padding:0;border:1px solid var(--ink)}
 .btn--icon svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.4}
 .btn--icon[aria-pressed="true"] svg{fill:var(--ink)}
@@ -209,3 +206,45 @@ select{width:100%;height:48px;padding:0 40px 0 14px;font:inherit;font-size:14px;
   *{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
 }
+
+/* ===== Shopify additions ===== */
+.skip-link{position:absolute;left:-999px;top:0;background:#fff;padding:8px 12px;z-index:200}
+.skip-link:focus{left:8px;top:8px}
+.logo__img{height:auto;width:100%}
+.header__menu-toggle{display:none}
+@media (max-width:900px){
+  .header__menu-toggle{display:grid}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);border-bottom:1px solid var(--line);padding:12px 24px 20px}
+  .nav.is-open{display:block}
+  .nav ul{flex-direction:column;gap:14px}
+}
+.gallery__slide{width:100%;height:100%}
+.gallery__img,.gallery__slide img,.gallery__placeholder{width:100%;height:100%;object-fit:cover;display:block}
+.gallery__placeholder{fill:#d9d2ca;padding:10%}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.swatch span{background-size:cover;background-position:center}
+.card__img img,.card__placeholder{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.card__placeholder{fill:#d9d2ca;padding:14%}
+.card:hover .card__img img{transform:scale(1.04)}
+.card__price s{color:#999;margin-right:6px}
+.line__img img{width:100%;height:100%;object-fit:cover}
+.rte p:last-child{margin-bottom:0}
+.rte img{max-width:100%;height:auto}
+.info__price s{color:#999;font-size:16px;margin-right:6px}
+.payments__icon{height:22px;width:auto}
+.page-top{padding-top:40px;padding-bottom:64px}
+.page-narrow{max-width:760px}
+.page-intro{text-align:center;max-width:640px;margin:-12px auto 32px;color:var(--ink-soft)}
+.pagination{text-align:center;margin-top:32px;font-size:13px;letter-spacing:.08em}
+.pagination a,.pagination span{padding:6px 10px}
+.cart-page .line{grid-template-columns:96px 1fr auto}
+.cart-qty{width:64px;height:36px;border:1px solid var(--line);text-align:center;font:inherit;margin:6px 8px 0 0}
+.cart-form .drawer__total{margin-top:24px}
+.search-form{margin-bottom:40px}
+.empty-state{padding:80px 24px;text-align:center;max-width:640px}
+.empty-state h1{font-size:32px;margin-bottom:12px}
+.post{padding:24px 0;border-bottom:1px solid var(--line)}
+.post h2{font-size:24px}
+.gift-code{font-size:28px;letter-spacing:.2em;margin:24px 0}
+.template-password .password{padding-top:120px}
+.drawer form{margin:0}

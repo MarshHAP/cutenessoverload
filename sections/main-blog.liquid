@@ -1,0 +1,16 @@
+<section class="container page-top page-narrow">
+  <h1 class="shelf__title">{{ blog.title }}</h1>
+  {% paginate blog.articles by 12 %}
+    {% for article in blog.articles %}
+      <article class="post">
+        <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+        <p class="line__meta">{{ article.published_at | date: '%d %B %Y' }}</p>
+        <p>{{ article.excerpt_or_content | strip_html | truncatewords: 40 }}</p>
+      </article>
+    {% endfor %}
+    {% if paginate.pages > 1 %}<div class="pagination">{{ paginate | default_pagination }}</div>{% endif %}
+  {% endpaginate %}
+</section>
+{% schema %}
+{ "name": "Blog", "settings": [] }
+{% endschema %}

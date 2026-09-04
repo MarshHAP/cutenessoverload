@@ -1,0 +1,17 @@
+{%- comment -%} Outputs a hex colour for a colour option value using the theme's swatch list. {%- endcomment -%}
+{%- assign wanted = value | downcase | strip -%}
+{%- assign found = '' -%}
+{%- assign lines = settings.swatch_colors | newline_to_br | split: '<br />' -%}
+{%- for line in lines -%}
+  {%- assign parts = line | strip | split: ':' -%}
+  {%- assign name = parts[0] | downcase | strip -%}
+  {%- if name == wanted and parts[1] != blank -%}{%- assign found = parts[1] | strip -%}{%- break -%}{%- endif -%}
+{%- endfor -%}
+{%- if found == '' -%}
+  {%- for line in lines -%}
+    {%- assign parts = line | strip | split: ':' -%}
+    {%- assign name = parts[0] | downcase | strip -%}
+    {%- if name != '' and wanted contains name and parts[1] != blank -%}{%- assign found = parts[1] | strip -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+{{ found | default: '#d8d2cb' }}

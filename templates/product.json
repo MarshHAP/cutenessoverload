@@ -1,0 +1,22 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "show_breadcrumb": true
+      }
+    },
+    "also_like": {
+      "type": "product-shelf",
+      "settings": {
+        "title": "You may also like",
+        "layout": "grid",
+        "limit": 8
+      }
+    }
+  },
+  "order": [
+    "main",
+    "also_like"
+  ]
+}

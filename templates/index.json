@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "settings": {
+        "product": "",
+        "show_breadcrumb": true
+      }
+    },
+    "matching": {
+      "type": "product-shelf",
+      "settings": {
+        "title": "Matching styles",
+        "layout": "carousel",
+        "limit": 4
+      }
+    },
+    "also_like": {
+      "type": "product-shelf",
+      "settings": {
+        "title": "You may also like",
+        "layout": "grid",
+        "limit": 12
+      }
+    }
+  },
+  "order": [
+    "main",
+    "matching",
+    "also_like"
+  ]
+}

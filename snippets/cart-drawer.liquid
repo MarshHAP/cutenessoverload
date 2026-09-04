@@ -1,0 +1,34 @@
+<div class="drawer-backdrop" data-cart-backdrop hidden></div>
+<aside class="drawer" id="CartDrawer" aria-label="{{ 'cart.title' | t }}" aria-hidden="true" data-cart-drawer>
+  <div class="drawer__head">
+    <h2>{{ 'cart.title' | t }}</h2>
+    <button type="button" class="icon-btn" aria-label="{{ 'general.close' | t }}" data-cart-close>✕</button>
+  </div>
+  <div class="drawer__items" data-cart-items>
+    {% if cart.item_count == 0 %}
+      <p class="drawer__empty">{{ 'cart.empty' | t }}</p>
+    {% else %}
+      {% for item in cart.items %}
+        <div class="line">
+          <div class="line__img">
+            {% if item.image %}{{ item.image | image_url: width: 160 | image_tag: loading: 'lazy' }}{% endif %}
+          </div>
+          <div>
+            <p class="line__name">{{ item.product.title }}</p>
+            <p class="line__meta">{% unless item.product.has_only_default_variant %}{{ item.variant.title }} · {% endunless %}Qty {{ item.quantity }}</p>
+            <button type="button" class="line__remove" data-cart-remove="{{ item.key }}">{{ 'cart.remove' | t }}</button>
+          </div>
+          <div class="line__price">{{ item.final_line_price | money }}</div>
+        </div>
+      {% endfor %}
+    {% endif %}
+  </div>
+  <div class="drawer__foot">
+    <div class="drawer__total"><span>{{ 'cart.subtotal' | t }}</span><strong data-cart-subtotal>{{ cart.total_price | money }}</strong></div>
+    <p class="drawer__note">{{ 'cart.note' | t }}</p>
+    <form action="{{ routes.cart_url }}" method="post">
+      <button type="submit" name="checkout" class="btn btn--primary btn--block" {% if cart.item_count == 0 %}disabled{% endif %} data-cart-checkout>{{ 'cart.checkout' | t }}</button>
+    </form>
+    <button type="button" class="btn btn--link btn--block" data-cart-close>{{ 'general.continue_shopping' | t }}</button>
+  </div>
+</aside>

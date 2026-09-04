@@ -1,0 +1,16 @@
+<section class="shelf container page-top">
+  <h1 class="shelf__title">Collections</h1>
+  <div class="grid">
+    {% for collection in collections %}
+      <a class="card" href="{{ collection.url }}">
+        <div class="card__img">
+          {% if collection.featured_image %}{{ collection.featured_image | image_url: width: 600 | image_tag: loading: 'lazy' }}{% else %}{{ 'collection-1' | placeholder_svg_tag: 'card__placeholder' }}{% endif %}
+        </div>
+        <p class="card__name">{{ collection.title }}</p>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% schema %}
+{ "name": "Collections list", "settings": [] }
+{% endschema %}

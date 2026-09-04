@@ -1,0 +1,18 @@
+<div class="utility-bar">
+  <div class="container utility-bar__inner">
+    <span class="utility-bar__item">{{ localization.country.name | default: shop.name }} {{ cart.currency.iso_code }} {{ cart.currency.symbol }}</span>
+    <nav class="utility-bar__links" aria-label="Utility">
+      {% for link in linklists[section.settings.menu].links %}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+      {% endfor %}
+    </nav>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Utility bar",
+  "settings": [
+    { "type": "link_list", "id": "menu", "label": "Menu", "default": "footer" }
+  ]
+}
+{% endschema %}

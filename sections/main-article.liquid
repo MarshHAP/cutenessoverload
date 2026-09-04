@@ -1,0 +1,9 @@
+<article class="container page-top page-narrow">
+  <h1 class="shelf__title">{{ article.title }}</h1>
+  <p class="line__meta" style="text-align:center">{{ article.published_at | date: '%d %B %Y' }}</p>
+  {% if article.image %}<div class="card__img" style="aspect-ratio:auto;margin:24px 0">{{ article.image | image_url: width: 1200 | image_tag }}</div>{% endif %}
+  <div class="rte">{{ article.content }}</div>
+</article>
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

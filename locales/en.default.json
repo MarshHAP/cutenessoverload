@@ -1,0 +1,36 @@
+{
+  "general": {
+    "skip_to_content": "Skip to content",
+    "search": "Search",
+    "saved_items": "Saved items",
+    "bag": "Shopping bag",
+    "close": "Close",
+    "home": "Home",
+    "continue_shopping": "Continue shopping"
+  },
+  "products": {
+    "add_to_bag": "Add to bag",
+    "sold_out": "Sold out",
+    "unavailable": "Unavailable",
+    "select_size": "Please select a size",
+    "size_guide": "Size guide",
+    "quantity": "Quantity",
+    "in_stock": "In stock — dispatched within 1–2 working days.",
+    "low_stock": "Only a few left.",
+    "save": "Save to wishlist",
+    "added": "Added to your bag"
+  },
+  "cart": {
+    "title": "Your bag",
+    "empty": "Your bag is empty.",
+    "subtotal": "Subtotal",
+    "note": "Delivery and gift wrapping calculated at checkout.",
+    "checkout": "Checkout",
+    "remove": "Remove"
+  },
+  "newsletter": {
+    "email": "Your email address",
+    "submit": "Sign up",
+    "success": "Thank you — you're on the list."
+  }
+}

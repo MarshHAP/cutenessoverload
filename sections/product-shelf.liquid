@@ -1,0 +1,36 @@
+{%- liquid
+  assign shelf = section.settings.collection
+  if shelf == blank
+    assign shelf = collections.all
+  endif
+  assign exclude_id = 0
+  if product
+    assign exclude_id = product.id
+  endif
+-%}
+{% if shelf.products.size > 0 %}
+<section class="shelf container">
+  <h2 class="shelf__title">{{ section.settings.title }}</h2>
+  <div class="{% if section.settings.layout == 'carousel' %}carousel{% else %}grid{% endif %}">
+    {% assign shown = 0 %}
+    {% for card_product in shelf.products %}
+      {% if card_product.id == exclude_id %}{% continue %}{% endif %}
+      {% if shown >= section.settings.limit %}{% break %}{% endif %}
+      {% render 'product-card', card_product: card_product %}
+      {% assign shown = shown | plus: 1 %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% schema %}
+{
+  "name": "Product shelf",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Heading", "default": "You may also like" },
+    { "type": "collection", "id": "collection", "label": "Collection", "info": "Leave empty to show all products." },
+    { "type": "select", "id": "layout", "label": "Layout", "options": [ { "value": "carousel", "label": "Carousel" }, { "value": "grid", "label": "Grid" } ], "default": "grid" },
+    { "type": "range", "id": "limit", "label": "Maximum products", "min": 2, "max": 12, "step": 1, "default": 8 }
+  ],
+  "presets": [{ "name": "Product shelf" }]
+}
+{% endschema %}

@@ -1,0 +1,26 @@
+{%- comment -%} Renders a product tile. Accepts: card_product {%- endcomment -%}
+<a class="card" href="{{ card_product.url }}">
+  <div class="card__img">
+    {% if card_product.tags contains 'new' or card_product.tags contains 'New' %}<span class="card__tag">New</span>{% endif %}
+    {% if card_product.featured_image != blank %}
+      {{ card_product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', sizes: '(min-width: 900px) 20vw, 45vw', widths: '300, 450, 600' }}
+    {% else %}
+      {{ 'product-apparel-2' | placeholder_svg_tag: 'card__placeholder' }}
+    {% endif %}
+  </div>
+  <p class="card__name">{{ card_product.title }}</p>
+  <p class="card__price">
+    {% if card_product.compare_at_price > card_product.price %}<s>{{ card_product.compare_at_price | money }}</s> {% endif %}
+    {% if card_product.price_varies %}From {% endif %}{{ card_product.price | money }}
+  </p>
+  {% for option in card_product.options_with_values %}
+    {% assign oname = option.name | downcase %}
+    {% if oname == 'colour' or oname == 'color' %}
+      <div class="card__colours">
+        {% for value in option.values limit: 6 %}
+          <span title="{{ value | escape }}" style="background:{% render 'swatch-color', value: value %}"></span>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</a>

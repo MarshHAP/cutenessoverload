@@ -1,0 +1,45 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Cuteness Overload",
+    "theme_version": "1.0.0",
+    "theme_author": "Cuteness Overload",
+    "theme_documentation_url": "https://github.com/MarshHAP/cutenessoverload",
+    "theme_support_url": "https://github.com/MarshHAP/cutenessoverload/issues"
+  },
+  {
+    "name": "Colours",
+    "settings": [
+      { "type": "color", "id": "color_text", "label": "Text", "default": "#1f1f1f" },
+      { "type": "color", "id": "color_background", "label": "Background", "default": "#ffffff" },
+      { "type": "color", "id": "color_background_soft", "label": "Soft background", "default": "#f7f4f1" },
+      { "type": "color", "id": "color_accent", "label": "Accent", "default": "#e8c4c4" },
+      { "type": "color", "id": "color_button", "label": "Button", "default": "#1f1f1f" },
+      { "type": "color", "id": "color_button_text", "label": "Button text", "default": "#ffffff" }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      { "type": "image_picker", "id": "favicon", "label": "Favicon image", "info": "Will be scaled down to 32 x 32px" }
+    ]
+  },
+  {
+    "name": "Product swatches",
+    "settings": [
+      { "type": "paragraph", "content": "Colour options named Colour or Color show as swatches. If the variant has its own image, that image is used. Otherwise the colour is taken from the list below." },
+      { "type": "textarea", "id": "swatch_colors", "label": "Colour names and hex codes", "info": "One per line, e.g. Dusty Pink:#e8c4c4", "default": "Pink:#e8b4b8\nDusty Pink:#e8c4c4\nWhite:#f5f1ea\nMilk:#f3ede4\nCream:#f3ede4\nBeige:#d9c4ad\nBrown:#5c3a2e\nBlue:#9db8d2\nGray:#b5b5b5\nGrey:#b5b5b5\nDark Navy:#2c3550\nNavy:#2c3550\nBlack:#1f1f1f\nRed:#b5443c\nGreen:#3d6b3f\nOrange:#d97a2b\nYellow:#f2c94c" }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      { "type": "text", "id": "social_instagram", "label": "Instagram URL" },
+      { "type": "text", "id": "social_pinterest", "label": "Pinterest URL" },
+      { "type": "text", "id": "social_facebook", "label": "Facebook URL" },
+      { "type": "text", "id": "social_tiktok", "label": "TikTok URL" },
+      { "type": "text", "id": "social_youtube", "label": "YouTube URL" },
+      { "type": "text", "id": "social_x", "label": "X URL" }
+    ]
+  }
+]
