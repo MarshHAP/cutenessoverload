@@ -3,7 +3,6 @@
     "main": {
       "type": "main-product",
       "settings": {
-        "product": "",
         "show_breadcrumb": true
       }
     },
